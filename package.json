@@ -1,0 +1,33 @@
+{
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "eslint": "^8.31.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  },
+  "name": "crud-api",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc index.ts",
+    "start": "ts-node src/index.ts",
+    "lint": "eslint . --ext .ts",
+    "prettier-format": "prettier --config .prettierrc \"src/**/*.ts\" --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Romnasi/crud-api.git"
+  },
+  "author": "Roman Holzman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Romnasi/crud-api/issues"
+  },
+  "homepage": "https://github.com/Romnasi/crud-api#readme"
+}
