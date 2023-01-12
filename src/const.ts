@@ -7,3 +7,11 @@ export enum responseStatus {
   BAD_REQUEST = 400,
   NOT_FOUND = 404
 }
+
+export enum HTTPMethod {
+  GET = 'GET',
+}
+
+export enum apiUrl {
+  USERS = "/api/users/",
+}

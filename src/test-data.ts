@@ -1,14 +1,15 @@
+import { v4 as uuid } from "uuid";
 import { Person } from "./type";
 
 export const testData: Person[] = [
   {
-    id: '1',
+    id: uuid(),
     username: 'Vasiliy',
     age: 23,
     hobbies: ['piano']
   },
   {
-    id: '2',
+    id: uuid(),
     username: 'Maks',
     age: 34,
     hobbies: ['Chess']
