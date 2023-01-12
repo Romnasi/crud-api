@@ -1,4 +1,6 @@
 import { testData as data } from "./test-data";
+import { validate } from "uuid";
+import { responseStatus, Message } from "./const";
 
 
 export class Controller {
@@ -7,13 +9,18 @@ export class Controller {
   }
 
   async getUser(id: string) {
-    return new Promise((resolve, reject) => {
-        const user = data.find((user) => user.id === id);
-        if (user) {
-            resolve(user);
-        } else {
-            reject(`User with id ${id} not found `);
-        }
-    });
+    try {
+      if (!validate(id)) {
+        return [responseStatus.BAD_REQUEST, Message.ID_IS_INVALID];
+      }
+      const user = data.find((user) => user.id === id);
+      if (user) {
+          return [responseStatus.OK, user];
+      } else {
+          return [responseStatus.NOT_FOUND, `User with id ${id} not found`];
+      }
+    } catch(err) {
+      return [responseStatus.BAD_REQUEST, Message.ID_IS_INVALID];
+    }
   }
 }

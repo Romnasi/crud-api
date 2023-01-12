@@ -8,6 +8,10 @@ export enum responseStatus {
   NOT_FOUND = 404
 }
 
+export enum Message {
+  ID_IS_INVALID = 'userId is invalid'
+}
+
 export enum HTTPMethod {
   GET = 'GET',
 }

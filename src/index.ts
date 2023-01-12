@@ -1,7 +1,9 @@
 import http from "http";
 import { Controller } from "./controller";
 import { PORT, responseStatus, HTTPMethod, apiUrl } from "./const";
+import { Person } from "./type";
 
+type ControllerData = string|Person
 
 const setEndSymbolUrl = (url: string) => {
   const length = url.length
@@ -22,10 +24,12 @@ const server = http.createServer(async (request, res) => {
       res.end();
     } else if (url.startsWith(apiUrl.USERS) && request.method === HTTPMethod.GET) {
       const id = request.url.split("/")[3];
-      console.log(id)
-      const user = await new Controller().getUser(id);
-      res.writeHead(responseStatus.OK, { "Content-Type": "application/json" });
-      res.end(JSON.stringify(user));
+      const result = await new Controller().getUser(id);
+      const code = result[0] as responseStatus;
+      const data = result[1] as ControllerData;
+
+      res.writeHead(code, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(data));
     }
   } else {
     res.writeHead(responseStatus.NOT_FOUND, { "Content-Type": "application/json" });
@@ -34,5 +38,5 @@ const server = http.createServer(async (request, res) => {
 })
 
 server.listen(PORT, () => {
-    console.log(`server started on: localhost:${PORT}`);
+    console.log(`server started on: http://localhost:${PORT}`);
 });
