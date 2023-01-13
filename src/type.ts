@@ -4,3 +4,5 @@ export type Person = {
   age: Required<number>;
   hobbies: Required<string[]>;
 }
+
+export type ControllerData = string|Person

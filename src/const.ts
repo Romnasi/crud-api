@@ -1,4 +1,8 @@
-export const PORT = 4000;
+import * as dotenv from 'dotenv'
+
+dotenv.config()
+
+export const PORT = process.env.PORT || 4000;
 
 export enum responseStatus {
   OK = 200,
@@ -9,11 +13,13 @@ export enum responseStatus {
 }
 
 export enum Message {
-  ID_IS_INVALID = 'userId is invalid'
+  ID_IS_INVALID = 'userId is invalid',
+  NO_REQUIRED_FIELDS = 'request body does not contain required fields',
 }
 
 export enum HTTPMethod {
   GET = 'GET',
+  POST = 'POST',
 }
 
 export enum apiUrl {

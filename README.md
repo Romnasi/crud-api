@@ -5,13 +5,13 @@
 
 ## Build and Run
 
-install dependencies
+### Install dependencies
 
 ```bash
 npm i
 ```
 
-start app
+### Start app
 
 ```bash
 npm run start
@@ -21,9 +21,18 @@ npm run start
 
 ### Endpoints
 
-#### User Service
-
 |HTTP Method|URL|Description|
 |---|---|---|
 |`GET`|<http://localhost:4000/api/users/> | Get all Users |
 |`GET`|<http://localhost:4000/api/users/{userId}> | Get User by ID |
+|`POST`|<http://localhost:4000/api/users/> | Create new User |
+
+---
+
+### User
+
+Users are stored as `objects` that have following properties:
+    - `id` — unique identifier (`string`, `uuid`) generated on server side
+    - `username` — user's name (`string`, **required**)
+    - `age` — user's age (`number`, **required**)
+    - `hobbies` — user's hobbies (`array` of `strings` or empty `array`, **required**)
