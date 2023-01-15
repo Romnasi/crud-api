@@ -1,4 +1,5 @@
 # crud-api
+
 "CRUD" service build on pure Node js
 
 ---
@@ -27,6 +28,7 @@ npm run start
 |`GET`|<http://localhost:4000/api/users/{userId}> | Get User by ID |
 |`POST`|<http://localhost:4000/api/users/> | Create new User |
 |`PUT`|<http://localhost:4000/api/users/{userId}> | Update User by ID |
+|`DELETE`|<http://localhost:4000/api/users/{userId}> | Delete User by ID |
 
 ---
 

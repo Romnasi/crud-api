@@ -73,4 +73,18 @@ export class Controller {
       return [responseStatus.BAD_REQUEST, Message.ROUTE_NOT_FOUND];
     }
   }
+
+  async deleteUser(id: string) {
+    if (!validate(id)) {
+      return [responseStatus.BAD_REQUEST, Message.ID_IS_INVALID];
+    }
+    const user = this.data.find((user) => user.id === id);
+    if (user) {
+      const userIndex = this.data.findIndex((user) => user.id === id)
+      this.data.splice(userIndex, 1);
+      return [responseStatus.NO_CONTENT, `User with id ${id} is found and deleted`];
+    } else {
+      return [responseStatus.NOT_FOUND, `User with id ${id} not found`];
+    }
+  }
 }

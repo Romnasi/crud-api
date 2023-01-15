@@ -46,10 +46,19 @@ const server = http.createServer(async (request, res) => {
         const result = await controller.updateUser(userData);
         const code = result[0] as responseStatus;
         const data = result[1] as ControllerData;
+        console.log(data)
         
         res.writeHead(code, { "Content-Type": "application/json" });
         res.end(JSON.stringify(data));
       }
+    } else if (url.startsWith(apiUrl.USERS) && request.method === HTTPMethod.DELETE) {
+      const id = request.url.split("/")[3];
+      const result = await controller.deleteUser(id);
+      const code = result[0] as responseStatus;
+      const data = result[1] as ControllerData;
+
+      res.writeHead(code, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(data));
     } else {
       res.writeHead(responseStatus.NOT_FOUND, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ message: Message.ROUTE_NOT_FOUND }));
