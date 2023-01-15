@@ -26,6 +26,7 @@ npm run start
 |`GET`|<http://localhost:4000/api/users/> | Get all Users |
 |`GET`|<http://localhost:4000/api/users/{userId}> | Get User by ID |
 |`POST`|<http://localhost:4000/api/users/> | Create new User |
+|`PUT`|<http://localhost:4000/api/users/{userId}> | Update User by ID |
 
 ---
 

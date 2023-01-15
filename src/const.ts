@@ -15,11 +15,13 @@ export enum responseStatus {
 export enum Message {
   ID_IS_INVALID = 'userId is invalid',
   NO_REQUIRED_FIELDS = 'request body does not contain required fields',
+  ROUTE_NOT_FOUND = 'Route not found',
 }
 
 export enum HTTPMethod {
   GET = 'GET',
   POST = 'POST',
+  PUT = 'PUT',
 }
 
 export enum apiUrl {
